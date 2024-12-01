@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Comida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #ff5722;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .food-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .food-item img {
+            max-width: 100px;
+            border-radius: 8px;
+        }
+        .food-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .food-details h4 {
+            margin: 0 0 5px 0;
+        }
+        .cart {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-top: 2px solid #ff5722;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tienda de Comida</h1>
+        <input type="text" id="search" placeholder="Buscar comida..." onkeyup="searchFood()" style="padding: 8px; width: 80%; margin-top: 10px;">
+    </header>
+
+    <div class="container" id="food-list">
+        <div class="food-item" data-name="Pizza">
+            <img src="https://via.placeholder.com/100" alt="Pizza">
+            <div class="food-details">
+                <h4>Pizza</h4>
+                <p>Precio: $10</p>
+            </div>
+            <button onclick="addToCart('Pizza', 10)">Agregar al carrito</button>
+        </div>
+        <div class="food-item" data-name="Hamburguesa">
+            <img src="https://via.placeholder.com/100" alt="Hamburguesa">
+            <div class="food-details">
+                <h4>Hamburguesa</h4>
+                <p>Precio: $8</p>
+            </div>
+            <button onclick="addToCart('Hamburguesa', 8)">Agregar al carrito</button>
+        </div>
+        <div class="food-item" data-name="Tacos">
+            <img src="https://via.placeholder.com/100" alt="Tacos">
+            <div class="food-details">
+                <h4>TACOS</h4>
+                <p>Precio: $6</p>
+            </div>
+            <button onclick="addToCart('Tacos', 6)">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <div class="cart">
+        <span id="cart-items">Carrito: 0 artículos</span>
+        <span id="cart-total">Total: $0</span>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            document.getElementById("cart-items").textContent = `Carrito: ${cart.length} artículos`;
+            document.getElementById("cart-total").textContent = `Total: $${total}`;
+        }
+
+        function searchFood() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const items = document.querySelectorAll(".food-item");
+            items.forEach(item => {
+                const name = item.dataset.name.toLowerCase();
+                if (name.includes(query)) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
