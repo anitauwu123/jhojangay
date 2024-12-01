@@ -4,71 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Comida</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
-        header {
-            background-color: #ff5722;
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-        }
-        .food-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .food-item img {
-            max-width: 100px;
-            border-radius: 8px;
-        }
-        .food-details {
-            flex: 1;
-            margin-left: 20px;
-        }
-        .food-details h4 {
-            margin: 0 0 5px 0;
-        }
-        .cart {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
-            border-top: 2px solid #ff5722;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        button {
-            background-color: #ff5722;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #e64a19;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Tienda de Comidita</h1>
+        <h1>Tienda de Comida</h1>
         <input type="text" id="search" placeholder="Buscar comida..." onkeyup="searchFood()" style="padding: 8px; width: 80%; margin-top: 10px;">
     </header>
 
