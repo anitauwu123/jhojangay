@@ -1,6 +1,6 @@
 # Delicias Gourmet - Tu Tienda de Comida Favorita
 
-Bienvenido a **Delicias Gourmet**, tu tienda en línea de comida favorita, donde podrás disfrutar de una amplia variedad de deliciosas comidas y bebidas. Nuestro objetivo es ofrecerte las mejores opciones gastronómicas con promociones exclusivas, menús innovadores y un servicio de entrega rápido y gratuito en pedidos mayores a $50,000.
+Bienvenido a **Delicias Anita**, tu tienda en línea de comida favorita, donde podrás disfrutar de una amplia variedad de deliciosas comidas y bebidas. Nuestro objetivo es ofrecerte las mejores opciones gastronómicas con promociones exclusivas, menús innovadores y un servicio de entrega rápido y gratuito en pedidos mayores a $50,000.
 
 ## Características
 
