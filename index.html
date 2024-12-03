@@ -1,76 +1,285 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Comida</title>
+    <title>Delicias Gourmet - Tu Tienda de Comida Favorita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Tienda de Comida</h1>
-        <input type="text" id="search" placeholder="Buscar comida..." onkeyup="searchFood()" style="padding: 8px; width: 80%; margin-top: 10px;">
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-utensils me-2"></i>Delicias Anita
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#comidas">Comidas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bebidas">Bebidas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#promociones">Promociones</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" id="search" placeholder="Buscar comida..." aria-label="Search" onkeyup="searchFood()">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
-    <div class="container" id="food-list">
-        <div class="food-item" data-name="Pizza">
-            <img src="https://via.placeholder.com/100" alt="Pizza">
-            <div class="food-details">
-                <h4>Pizza</h4>
-                <p>Precio: $10</p>
-            </div>
-            <button onclick="addToCart('Pizza', 10)">Agregar al carrito</button>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="food-item" data-name="Hamburguesa">
-            <img src="https://via.placeholder.com/100" alt="Hamburguesa">
-            <div class="food-details">
-                <h4>Hamburguesa</h4>
-                <p>Precio: $8</p>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/food1.png" class="carousel-img" alt="Oferta especial">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>¡Oferta Especial!</h2>
+                    <p>2x1 en todas las hamburguesas los martes</p>
+                </div>
             </div>
-            <button onclick="addToCart('Hamburguesa', 8)">Agregar al carrito</button>
+            <div class="carousel-item">
+                <img src="img/food2.png" class="carousel-img" alt="Nuevo menú">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Nuevo Menú Vegetariano</h2>
+                    <p>Descubre nuestras deliciosas opciones </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/food4.png" class="carousel-img" alt="Delivery">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Delivery Gratis</h2>
+                    <p>En pedidos superiores a $50000</p>
+                </div>
+            </div>
         </div>
-        <div class="food-item" data-name="Tacos">
-            <img src="https://via.placeholder.com/100" alt="Tacos">
-            <div class="food-details">
-                <h4>TACOS</h4>
-                <p>Precio: $6</p>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4" id="comidas">Nuestras Deliciosas Comidas</h2>
+        <div class="row" id="food-list">
+            <div class="col-md-4 mb-4">
+                <div class="card food-item" data-name="Pizza">
+                    <img src="img/food9.png" class="card-img-top" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title">Pizza Suprema</h5>
+                        <p class="card-text">Deliciosa pizza con todos los ingredientes que te encantan.</p>
+                        <p class="card-text"><strong>Precio: $12000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Pizza Suprema', 12000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
             </div>
-            <button onclick="addToCart('Tacos', 6)">Agregar al carrito</button>
+            <div class="col-md-4 mb-4">
+                <div class="card food-item" data-name="Hamburguesa">
+                    <img src="img/hamburguesa.png" class="card-img-top" alt="Hamburguesa">
+                    <div class="card-body">
+                        <h5 class="card-title">Hamburguesa Gourmet</h5>
+                        <p class="card-text">Jugosa hamburguesa con queso, tocino y salsa especial.</p>
+                        <p class="card-text"><strong>Precio: $25000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Hamburguesa Gourmet', 25000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card food-item" data-name="Tacos">
+                    <img src="img/tacos.jpg" class="card-img-top" alt="Tacos">
+                    <div class="card-body">
+                        <h5 class="card-title">Tacos al Pastor</h5>
+                        <p class="card-text">Auténticos tacos mexicanos con carne marinada y piña.</p>
+                        <p class="card-text"><strong>Precio: $18000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Tacos al Pastor', 18000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card food-item" data-name="Papitas">
+                    <img src="img/papas.jpg" class="card-img-top" alt="Papitas">
+                    <div class="card-body">
+                        <h5 class="card-title">Papitas Crocantes</h5>
+                        <p class="card-text">Crujientes papas fritas con una mezcla de especias.</p>
+                        <p class="card-text"><strong>Precio: $7000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Papitas Crocantes', 7000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card food-item" data-name="Sandwich">
+                    <img src="img/food2.png" class="card-img-top" alt="Sandwich">
+                    <div class="card-body">
+                        <h5 class="card-title">Sandwich Club</h5>
+                        <p class="card-text">Sandwich triple con pollo, tocino, lechuga y tomate.</p>
+                        <p class="card-text"><strong>Precio: $15000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Sandwich Club', 15000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card food-item" data-name="Pincho mix">
+                    <img src="img/food8.png" class="card-img-top" alt="Pincho mix">
+                    <div class="card-body">
+                        <h5 class="card-title">Pincho Mix</h5>
+                        <p class="card-text">Deliciosa combinación de carnes y vegetales a la parrilla.</p>
+                        <p class="card-text"><strong>Precio: $23000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Pincho Mix', 23000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center mb-4 mt-5" id="bebidas">Nuestras Refrescantes Bebidas</h2>
+        <div class="row" id="drinks-list">
+            <div class="col-md-3 mb-4">
+                <div class="card food-item" data-name="Limonada">
+                    <img src="img/limonada.jpg" class="card-img-top" alt="Limonada">
+                    <div class="card-body">
+                        <h5 class="card-title">Limonada Fresca</h5>
+                        <p class="card-text"><strong>Precio: $5000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Limonada Fresca', 5000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card food-item" data-name="Smoothie">
+                    <img src="img/smoothie.jpg" class="card-img-top" alt="Smoothie">
+                    <div class="card-body">
+                        <h5 class="card-title">Smoothie de Frutas</h5>
+                        <p class="card-text"><strong>Precio: $7000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Smoothie de Frutas', 7000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card food-item" data-name="Café">
+                    <img src="img/cafe.jpg" class="card-img-top" alt="Café">
+                    <div class="card-body">
+                        <h5 class="card-title">Café Latte</h5>
+                        <p class="card-text"><strong>Precio: $6000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Café Latte', 6000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card food-item" data-name="Cerveza">
+                    <img src="img/cerveza.jpg" class="card-img-top" alt="Cerveza">
+                    <div class="card-body">
+                        <h5 class="card-title">Cerveza Artesanal</h5>
+                        <p class="card-text"><strong>Precio: $8000</strong></p>
+                        <button class="btn btn-primary" onclick="addToCart('Cerveza Artesanal', 8000)">
+                            <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 mb-5" >
+            <h2 class="mb-4" id="promociones">Promociones Especiales</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Combo Familiar</h5>
+                            <p class="card-text">2 pizzas grandes + 1 orden de papitas + 4 bebidas</p>
+                            <p class="card-text"><strong>Precio: $60000</strong></p>
+                            <button class="btn btn-warning" onclick="addToCart('Combo Familiar', 60000)">
+                                <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Almuerzo Ejecutivo</h5>
+                            <p class="card-text">Plato principal + ensalada + bebida + postre</p>
+                            <p class="card-text"><strong>Precio: $30000</strong></p>
+                            <button class="btn btn-warning" onclick="addToCart('Almuerzo Ejecutivo', 30000)">
+                                <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="cart">
-        <span id="cart-items">Carrito: 0 artículos</span>
-        <span id="cart-total">Total: $0</span>
-    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light cart">
+        <div class="container">
+            <span class="navbar-text" id="cart-items">
+                <i class="fas fa-shopping-cart me-2"></i>Carrito: 0 artículos
+            </span>
+            <span class="navbar-text" id="cart-total">Total: $0</span>
+            <button class="btn btn-success" onclick="checkout()">
+                <i class="fas fa-cash-register me-2"></i>Pagar
+            </button>
+        </div>
+    </nav>
 
-    <script>
-        let cart = [];
-        let total = 0;
-
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            total += price;
-            updateCart();
-        }
-
-        function updateCart() {
-            document.getElementById("cart-items").textContent = `Carrito: ${cart.length} artículos`;
-            document.getElementById("cart-total").textContent = `Total: $${total}`;
-        }
-
-        function searchFood() {
-            const query = document.getElementById("search").value.toLowerCase();
-            const items = document.querySelectorAll(".food-item");
-            items.forEach(item => {
-                const name = item.dataset.name.toLowerCase();
-                if (name.includes(query)) {
-                    item.style.display = "flex";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        }
-    </script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+   
+    
 </body>
+<footer class="bg-primary text-white text-center py-4">
+    <div class="container">
+        <h5>Síguenos en nuestras redes sociales</h5>
+        <div class="d-flex justify-content-center my-3">
+            <a href="https://www.facebook.com/ana182005" class="text-white mx-3" target="_blank">
+                <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a href="https://www.instagram.com/ana_aazz/" class="text-white mx-3" target="_blank">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://www.youtube.com/@anauwu8451" class="text-white mx-3" target="_blank">
+                <i class="fab fa-youtube fa-2x"></i>
+            </a>
+        </div>
+        <p class="mb-0">&copy; 2024 Delicias Anita. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+<script src="script.js"></script>
 </html>
+```
